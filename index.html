@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Parallax Scrolling Website using Vanilla JavaScript</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <header>
+            <a href="#" class="logo">Ali Jone</a>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Work</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </header>
+        <section>
+            <img src="stars.png" id="stars">
+            <img src="moon.png" id="moon">
+            <img src="mountains_behind.png" id="mountains_behind">
+            <h2 id="text">Parallex Night</h2>
+            <a href="#sec" id="btn">Explore</a>
+            <img src="mountains_front.png" id="mountains_front">
+        </section>
+        <div class="section">
+            <img src="stars.png" id="Daystars">
+            <img src="sun.png" id="Daymoon">
+            <img src="Daymountains_behind.png" id="Daymountains_behind">
+            <h2 id="Daytext">Parallex Day</h2>
+            <a href="#sec" id="Daybtn">Explore</a>
+            <img src="Daymountains_front.png" id="Daymountains_front">
+        </div>
+        <div class="sec">
+            <p> Ali Jone Merchant</p>
+        </div>
+        <script>
+            let stars = document.getElementById('stars');
+            let moon = document.getElementById('moon');
+            let mountains_behind = document.getElementById('mountains_behind');
+            let text = document.getElementById('text');
+            let btn = document.getElementById('btn');
+            let mountains_front = document.getElementById('mountains_front');
+            let header = document.querySelector('header');
+            let Daystars = document.getElementById('Daystars');
+            let Daymoon = document.getElementById('Daymoon');
+            let Daymountains_behind = document.getElementById('Daymountains_behind');
+            let Daytext = document.getElementById('Daytext');
+            let Daybtn = document.getElementById('Daybtn');
+            let Daymountains_front = document.getElementById('Daymountains_front');
+
+            window.addEventListener('scroll', function() {
+                let value = window.scrollY;
+                stars.style.left = value * 0.25 + 'px';
+                moon.style.top = value * 1.05 + 'px';
+                mountains_behind.style.top = value * 0.5 + 'px';
+                mountains_front.style.top = value * 0 + 'px';
+                text.style.marginRight = value * 4 + 'px';
+                text.style.marginTop = value * 1.5 + 'px';
+                btn.style.marginTop = value * 1.5 + 'px';
+                header.style.top = value * 0.5 + 'px';
+                console.log(value);
+                if (value > 490) {
+                    Daystars.style.left = (value -490) * 0.25 + 'px';
+                    Daymoon.style.top = ((value -490) * 1.05 -475.9) + 'px';
+                    Daymoon.style.opacity = '1';
+                    Daymountains_behind.style.top = (value -490) * 0.5 + 'px';
+                    Daymountains_front.style.top = (value -490) * 0 + 'px';
+                    Daytext.style.marginRight = (value -490) * 4 + 'px';
+                    Daytext.style.marginTop = (value -490) * 1.5 + 'px';
+                    Daybtn.style.marginTop = (value -490) * 1.5 + 'px';
+                }
+            })
+        </script>
+    </body>
+</html>
